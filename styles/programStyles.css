@@ -1,0 +1,35 @@
+a.section h3::after,
+a.section h3::before,
+a.section h3 {
+  transition: 1s;
+}
+
+a.section h3 {
+  outline: solid 2px transparent;
+  border-radius: 4px;
+}
+a.section h3::before {
+  content: '>';
+}
+a.section h3::after {
+  content: '<';
+  margin-
+}
+a.section h3::after,
+a.section h3::before {
+  width: 0;
+  display: inline-block;
+}
+
+
+a.section:has( + div.section:hover) h3,
+a.section:hover h3 {
+  background: var(--accent-col);
+  outline-color: var(--accent-col);
+}
+a.section:has( + div.section:hover) h3::after,
+a.section:has( + div.section:hover) h3::before,
+a.section:hover h3::after,
+a.section:hover h3::before {
+
+}

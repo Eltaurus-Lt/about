@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+  <meta property="og:title" content="Eltaurus" />
+  <meta property="og:description" content="" />
+  <meta property="og:image" content="imgs/splash.png" />
+  <meta property="og:type" content="website" />
+
+  <title>Eltaurus</title>
+  <meta name="author" content="Eltaurus">
+
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/svg+xml" href="imgs/favicon.svg">
+  <link rel="stylesheet" href="styles/main.css">
+  <link rel="stylesheet" href="styles/programStyles.css">
+  <link rel="icon" type="image/svg+xml" href="">
+
+<style>
+ 
+#panels {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  gap: 2em;
+
+}
+
+#ava {
+  border-radius: 50%;
+  box-shadow: 4px 4px 16px 0 #222;
+}
+#bio h1 {
+  margin-top: 0em;
+}
+#bio h5 {
+  //margin-left: auto;
+  padding-left: 0;
+}
+
+.noncap {
+  text-transform: none;
+}
+.accent {
+  color: royalblue;
+}
+
+#social {
+  margin-top: 0.5em;
+  display: flex;
+  gap: .5em;
+  justify-content: center;
+}
+
+#social object,
+#social a {
+  display: block;
+  width: 2em;
+  height: 2em;
+}
+#social a:empty {
+  border-radius: 1em;
+  background-color: white;
+}
+
+</style>
+</head>
+<body>
+
+<div id="panels">
+  <div>
+    <img id="ava" src="imgs/Lt.png">
+    <div id="social">
+      <object type="image/svg+xml" data="imgs/hypericons/GitHub.svg"></object>
+      <object type="image/svg+xml" data="imgs/hypericons/Orcid.svg"></object>
+      <object type="image/svg+xml" data="imgs/hypericons/Behance.svg" title="Behance"></object>
+      <object type="image/svg+xml" data="imgs/hypericons/Vimeo.svg"></object>
+      <object type="image/svg+xml" data="imgs/hypericons/Anki.svg"></object>
+      <object type="image/svg+xml" data="imgs/hypericons/Coffee.svg"></object>
+    </div>
+  </div>
+  <div id="bio">
+    <h1><span class="noncap">Sergey</span> <span class="accent">Efimov</span></h1>
+    <h5>✉ eltaurus@inbox.lt</h5>
+    <p>
+      Something something about
+    </p>
+  </div>
+</div>
+
+<h1>Open-source <span class="accent">Projects</span></h1>
+<ol class="">
+  <li>Anki Templates</li>
+  <li>Chaos and Cats</li>
+  <li>pLTlib</li>
+  <li>Squirrels and space</li>
+  <li>Memrise Community Course downloader</li>
+  <li hidden>GLSL renderer</li>
+</ol>
+
+
+<h1>Selected <span class="accent">Publications</span></h1>
+<ol class="">
+  <li>CMDA OR</li>
+  <li>CMDA SD</li>
+  <li>Open Astronomy</li>
+</ol>
+
+</body>
+</html>
