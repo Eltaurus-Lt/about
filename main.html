@@ -21,20 +21,31 @@
   <link rel="icon" type="image/svg+xml" href="">
 
 <style>
+
+body {
+  box-sizing: border-box;
+  padding: 2em 3em;
+}
+
+h1 {
+  margin-top: 3em !important;
+}
  
 #panels {
   display: grid;
-  grid-template-columns: 2fr 3fr;
+  grid-template-columns: minmax(0, 2fr) minmax(0, 3fr);
   gap: 2em;
-
+  place-items: center;
 }
 
 #ava {
   border-radius: 50%;
   box-shadow: 4px 4px 16px 0 #222;
+  width: 100%;
+  max-width: 250px;
 }
 #bio h1 {
-  margin-top: 0em;
+  margin-top: 0em !important;
 }
 #bio h5 {
   //margin-left: auto;
@@ -54,6 +65,7 @@
 #social {
   margin-top: 0.5em;
   display: flex;
+  flex-wrap: wrap;
   gap: .5em;
   justify-content: center;
 }
@@ -61,8 +73,8 @@
 #social object,
 #social a {
   display: block;
-  width: 2em;
-  height: 2em;
+  width: 1.75em;
+  height: 1.75em;
 }
 #social a:empty {
   border-radius: 1em;
@@ -70,12 +82,71 @@
 }
 
 #projects {
- display: grid;
- grid-template-columns: repeat(2, minmax(0, 1fr));
- gap: 2em;
+  display: grid;
+  place-items: center;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2em;
+  padding: 0;
+  list-style-type: none;
 }
 
 #projects li {
+  background: color-mix(black 42%, var(--substrate-col) 50%);
+  border-radius: 2px;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+  height: 100%;
+  max-width: 360px;
+}
+
+#projects li a {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 100%;
+}
+
+#projects li h3 {
+  width: 100%;
+  text-decoration: none;
+  padding: .25em .75em;
+  box-sizing: border-box;
+  margin: 0;
+  flex-shrink: 0;
+}
+
+#projects li .img-container {
+  display: block;
+  overflow: hidden;
+  width: 100%;
+  aspect-ratio: 4 / 3;
+  flex-shrink: 0;
+}
+.img-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: scale 1s;
+}
+
+#projects li:hover a h3 {
+  text-decoration: underline;
+}
+#projects li:hover .img-container img {
+  scale: 1.05;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 2em 2em;
+  }
+  #panels {
+    grid-template-columns: 1fr;
+  }
+  #projects {
+    grid-template-columns: 1fr;
+  }
 }
 
 </style>
@@ -100,17 +171,24 @@
     <p>
       Something something about
     </p>
+    <fieldset class="downloads-block todo">
+      <legend>Downloads</legend>
+      <a class="dwld" href="PDFs/.pdf" download="CV_Efimov (academic).pdf" title="minimal template">CV_Academic.pdf</a>
+      <a class="dwld" href="PDFs/.pdf" download="CV_Efimov (software).pdf" title="use example">CV_Software.pdf</a>
+      <a class="dwld off" href="PDFs/.pdf" download="CV_Efimov (graphics).pdf" title="template">CV_CG.pdf</a>
+      <a class="dwld" href="PDFs/2026-full.pdf" download="CV_Efimov (full).pdf" title="minimal template">CV_full.pdf</a>
+    </fieldset>
   </div>
 </div>
 
 <h1>Open-source <span class="accent">Projects</span></h1>
 <ol id="projects">
-  <li><a href="https://ankiweb.net/shared/info/510199145" target="blank_"><h3>Anki Templates</h3><img src="imgs/previews/Anki.png"></a></li>
-  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/en/program.html" target="blank_"><h3>Chaos and Cats</h3><img src="https://eltaurus-lt.github.io/ChaosAndCats/imgs/splash.png"></a></li>
-  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/pLTlib/Readme.html" target="blank_"><h3>pLTlib</h3><img src="imgs/previews/pLTlib.png"></a></li>
-  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/en/ConformalMaps.html" target="blank_"><h3>Squirrels and Space</h3><img src="imgs/previews/SnS.png"></a></li>
-  <li><a href="https://github.com/Eltaurus-Lt/CourseDump2022" target="blank_"><h3>Memrise Community Course downloader</h3><img src="imgs/previews/MCD.png"></a></li>
-  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/tools/glsl_renderer.html" target="blank_"><h3>GLSL renderer</h3><img src="imgs/previews/GLSLt.png"></a></li>
+  <li><a href="https://ankiweb.net/shared/info/510199145" target="blank_"><h3>Anki Templates</h3><div class="img-container"><img src="imgs/previews/Anki.png"></div></a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/en/program.html" target="blank_"><h3>Chaos and Cats</h3><div class="img-container"><img src="https://eltaurus-lt.github.io/ChaosAndCats/imgs/splash.png"></div></a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/pLTlib/Readme.html" target="blank_"><h3>pLTlib</h3><div class="img-container"><img src="imgs/previews/pLTlib.png"></div></a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/en/ConformalMaps.html" target="blank_"><h3>Squirrels and Space</h3><div class="img-container"><img src="imgs/previews/SnS.png"></div></a></li>
+  <li><a href="https://github.com/Eltaurus-Lt/CourseDump2022" target="blank_"><h3>Memrise downloader</h3><div class="img-container"><img src="imgs/previews/MCD.png"></div></a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/tools/glsl_renderer.html" target="blank_"><h3>GLSL renderer</h3><div class="img-container"><img src="imgs/previews/GLSLt.png"></div></a></li>
 </ol>
 
 

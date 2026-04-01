@@ -21,9 +21,9 @@ h4 {
     counter-reset: refN;
 }
 ol.references li {
-    display: block;
+    // display: block;
 }
-ol.references li::before {
+ol.references li::marker {
     content: "[" counter(refN) "] ";
     counter-increment: refN;
 }
