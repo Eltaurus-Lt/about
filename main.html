@@ -85,7 +85,7 @@ h1 {
   display: grid;
   place-items: center;
   grid-template-columns: repeat(2, 1fr);
-  gap: 2em;
+  gap: 1.5em;
   padding: 0;
   list-style-type: none;
 }
@@ -118,6 +118,7 @@ h1 {
 
 #projects li .img-container {
   display: block;
+  position: relative;
   overflow: hidden;
   width: 100%;
   aspect-ratio: 4 / 3;
@@ -127,14 +128,58 @@ h1 {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  will-change: transform;
   transition: scale 1s;
 }
+
+.img-container .description {
+  display: block;
+  position: absolute;
+  inset: 0;
+  z-index: 100;
+  padding: 1em;
+
+  text-shadow: 2px 1px 2px #0009;
+
+  width: 100%;
+  box-sizing: border-box;
+  word-break: break-word;
+  overflow-wrap: break-word;
+  text-align: justify;
+  hyphens: auto;
+
+  transition: opacity .5s;
+  opacity: 0;
+}
+
 
 #projects li:hover a h3 {
   text-decoration: underline;
 }
 #projects li:hover .img-container img {
+  will-change: transform;
   scale: 1.05;
+}
+#projects li .img-container::before {
+  content: '';
+  inset: 0;
+  display: block;
+  position: absolute;
+
+  background: linear-gradient(to bottom, black 7%, transparent 70%);
+  background-size: 100% 150%;
+  background-position: 0 100%;
+
+  opacity: 0;
+  z-index: 10;
+  transition: opacity .75s, background-position .75s;
+}
+#projects li:hover .img-container::before {
+  opacity: .75;
+  background-position: 0 0;
+}
+#projects li:hover .img-container .description {
+  opacity: 1; 
 }
 
 @media (max-width: 600px) {
@@ -183,12 +228,60 @@ h1 {
 
 <h1>Open-source <span class="accent">Projects</span></h1>
 <ol id="projects">
-  <li><a href="https://ankiweb.net/shared/info/510199145" target="blank_"><h3>Anki Templates</h3><div class="img-container"><img src="imgs/previews/Anki.png"></div></a></li>
-  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/en/program.html" target="blank_"><h3>Chaos and Cats</h3><div class="img-container"><img src="https://eltaurus-lt.github.io/ChaosAndCats/imgs/splash.png"></div></a></li>
-  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/pLTlib/Readme.html" target="blank_"><h3>pLTlib</h3><div class="img-container"><img src="imgs/previews/pLTlib.png"></div></a></li>
-  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/en/ConformalMaps.html" target="blank_"><h3>Squirrels and Space</h3><div class="img-container"><img src="imgs/previews/SnS.png"></div></a></li>
-  <li><a href="https://github.com/Eltaurus-Lt/CourseDump2022" target="blank_"><h3>Memrise downloader</h3><div class="img-container"><img src="imgs/previews/MCD.png"></div></a></li>
-  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/tools/glsl_renderer.html" target="blank_"><h3>GLSL renderer</h3><div class="img-container"><img src="imgs/previews/GLSLt.png"></div></a></li>
+  <li><a href="https://ankiweb.net/shared/info/510199145" target="blank_">
+    <h3>Anki Templates</h3>
+    <div class="img-container">
+      <img src="imgs/previews/Anki.png">
+      <h4 class="description">
+        Customizable interactive flashcard templates with a support add-on for automated setup and data management
+      </h4>
+    </div>
+  </a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/en/program.html" target="blank_">
+    <h3>Chaos and Cats</h3>
+    <div class="img-container">
+      <img src="https://eltaurus-lt.github.io/ChaosAndCats/imgs/splash.png">
+      <h4 class="description">
+        University course on mathematical modelling and computer graphics for scientific visualisation
+      </h4>
+    </div>
+  </a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/pLTlib/Readme.html" target="blank_">
+    <h3>pLTlib</h3>
+    <div class="img-container">
+      <img src="imgs/previews/pLTlib.png">
+      <h4 class="description">
+        Low-level JavaScript framework for interactive mathematical illustrations with minimal setup and maximum flexibility
+      </h4>
+    </div>
+  </a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/en/ConformalMaps.html" target="blank_">
+    <h3>Squirrels and Space</h3>
+    <div class="img-container">
+      <img src="imgs/previews/SnS.png">
+      <h4 class="description">
+        A collection of independent math and physics-related articles
+      </h4>
+    </div>
+  </a></li>
+  <li><a href="https://github.com/Eltaurus-Lt/CourseDump2022" target="blank_">
+    <h3>Memrise downloader</h3>
+    <div class="img-container">
+      <img src="imgs/previews/MCD.png">
+      <h4 class="description">
+        Google Chrome extension for downloading community-created Memrise courses with all associated media
+      </h4>
+    </div>
+  </a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/tools/glsl_renderer.html" target="blank_">
+    <h3>GLSL renderer</h3>
+    <div class="img-container">
+      <img src="imgs/previews/GLSLt.png">
+      <h4 class="description">
+        Shader editor and renderer focused on deterministic, frame‑by‑frame output instead of real-time performance
+      </h4>
+    </div>
+  </a></li>
 </ol>
 
 
