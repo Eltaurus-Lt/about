@@ -65,6 +65,15 @@
   background-color: white;
 }
 
+#projects {
+ display: grid;
+ grid-template-columns: repeat(2, minmax(0, 1fr));
+ gap: 2em;
+}
+
+#projects li {
+}
+
 </style>
 </head>
 <body>
@@ -91,13 +100,13 @@
 </div>
 
 <h1>Open-source <span class="accent">Projects</span></h1>
-<ol class="">
-  <li>Anki Templates</li>
-  <li>Chaos and Cats</li>
-  <li>pLTlib</li>
-  <li>Squirrels and space</li>
-  <li>Memrise Community Course downloader</li>
-  <li hidden>GLSL renderer</li>
+<ol id="projects">
+  <li><a href="https://ankiweb.net/shared/info/510199145" target="blank_"><h3>Anki Templates</h3><img src="imgs/previews/Anki.png"></a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/en/program.html" target="blank_"><h3>Chaos and Cats</h3><img src="https://eltaurus-lt.github.io/ChaosAndCats/imgs/splash.png"></a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/pLTlib/Readme.html" target="blank_"><h3>pLTlib</h3><img src="imgs/previews/pLTlib.png"></a></li>
+  <li><a href="https://eltaurus-lt.github.io/SquirrelsAndSpace/en/ConformalMaps.html" target="blank_"><h3>Squirrels and Space</h3><img src="imgs/previews/SnS.png"></a></li>
+  <li><a href="https://github.com/Eltaurus-Lt/CourseDump2022" target="blank_"><h3>Memrise Community Course downloader</h3><img src="imgs/previews/MCD.png"></a></li>
+  <li><a href="https://eltaurus-lt.github.io/ChaosAndCats/tools/glsl_renderer.html" target="blank_"><h3>GLSL renderer</h3><img src="imgs/previews/GLSLt.png"></a></li>
 </ol>
 
 
