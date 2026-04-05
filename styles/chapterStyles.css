@@ -20,12 +20,20 @@ h4 {
 *:has(>ol.references) {
     counter-reset: refN;
 }
-ol.references li {
-    // display: block;
+ol.references {
+  padding-left: 2em;
 }
-ol.references li::marker {
-    content: "[" counter(refN) "] ";
+ol.references li {
+  display: block;
+  list-style: none;
+  position: relative;
+}
+ol.references li::before {
+    content: "[" counter(refN) "]\00A0";
     counter-increment: refN;
+    position: absolute;
+    display: list-item;
+    translate: -100% 0;
 }
 
 ul.references {
